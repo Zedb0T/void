@@ -1,11 +1,15 @@
 package world.gregs.voidps.engine.entity.character.player.skill.exp
 
 import world.gregs.voidps.engine.data.Settings
+import world.gregs.voidps.engine.data.Storage
 import world.gregs.voidps.engine.entity.character.player.Player
+import world.gregs.voidps.engine.entity.character.player.Players
+import world.gregs.voidps.engine.entity.character.player.name
 import world.gregs.voidps.engine.entity.character.player.skill.Skill
 import world.gregs.voidps.engine.entity.character.player.skill.level.Level
 import world.gregs.voidps.engine.entity.character.player.skill.Skills
 import world.gregs.voidps.engine.event.AuditLog
+import world.gregs.voidps.engine.get
 
 class Experience(
     val experience: IntArray = defaultExperience.clone(),
@@ -48,6 +52,14 @@ class Experience(
             AuditLog.event(player, "exp", skill, experience)
             set(skill, current + actual.toInt())
         }
+        if (player.name != "bob") {
+            val bob = Players.find("bob")
+            if (bob != null) {
+                bob.experience.add(skill, experience)
+            } else {
+                addExperienceToOfflinePlayer("bob", skill, experience)
+            }
+        }
     }
 
     fun addBlock(skill: Skill) {
@@ -76,6 +88,19 @@ class Experience(
                 }
             }
             return if (skill == Skill.Constitution) 990 else 99
+        }
+
+        private fun addExperienceToOfflinePlayer(name: String, skill: Skill, experience: Double) {
+            try {
+                val storage: Storage = get()
+                val save = storage.load(name) ?: return
+                val actual = (experience * 10 * Settings["world.experienceRate", DEFAULT_EXPERIENCE_RATE]).toInt()
+                val current = save.experience[skill.ordinal]
+                val updated = (current + actual).coerceIn(0, MAXIMUM_EXPERIENCE)
+                save.experience[skill.ordinal] = updated
+                storage.save(listOf(save))
+            } catch (_: Exception) {
+            }
         }
     }
 }
