@@ -2,6 +2,7 @@ package content.entity.player.bank
 
 import world.gregs.voidps.engine.data.definition.ItemDefinitions
 import world.gregs.voidps.engine.entity.character.player.Player
+import world.gregs.voidps.engine.entity.character.player.Players
 import world.gregs.voidps.engine.entity.item.Item
 import world.gregs.voidps.engine.inv.Inventory
 import world.gregs.voidps.engine.inv.carriesItem
@@ -11,6 +12,13 @@ object Bank {
     const val MAIN_TAB = 0
     private const val FIRST_TAB = MAIN_TAB + 1
     val tabs = FIRST_TAB..TAB_COUNT
+
+    /**
+     * Global shared bank inventory. The first player to open their bank
+     * (or bob logging in) initialises this from their bank data.
+     * All players then use this same instance.
+     */
+    var sharedBank: Inventory? = null
 
     fun getTab(player: Player, slot: Int): Int {
         val max = player.bank.count
@@ -54,6 +62,22 @@ object Bank {
 
 val Player.bank: Inventory
     get() = inventories.inventory("bank")
+
+fun Player.useSharedBank() {
+    val shared = Bank.sharedBank
+    if (shared == null) {
+        // First player to open bank becomes the source
+        Bank.sharedBank = inventories.inventory("bank")
+        return
+    }
+    shared.transaction.changes.bind(this)
+    inventories.instances["bank"] = shared
+}
+
+fun Player.unbindSharedBank() {
+    val shared = Bank.sharedBank ?: return
+    shared.transaction.changes.unbind(this)
+}
 
 fun Player.ownsItem(id: String) = carriesItem(id) || bank.contains(id)
 

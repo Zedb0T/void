@@ -32,6 +32,7 @@ class BankOpen(val accounts: AccountDefinitions) : Script {
         }
 
         interfaceClosed("bank") {
+            unbindSharedBank()
             set("bank_hidden", true)
             close("bank_side")
             open("inventory")
@@ -52,6 +53,7 @@ class BankOpen(val accounts: AccountDefinitions) : Script {
         }
 
         interfaceOpened("bank") {
+            useSharedBank()
             set("bank_hidden", false)
             sendInventory("bank")
             open("bank_side")
