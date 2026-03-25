@@ -7,6 +7,7 @@ import content.entity.combat.damageDealers
 import content.entity.combat.dead
 import content.entity.combat.killer
 import content.entity.effect.clearTransform
+import content.entity.player.CollectionLog
 import content.entity.player.inv.item.tradeable
 import content.skill.slayer.*
 import content.social.clan.clan
@@ -109,6 +110,11 @@ class NPCDeath(
             .filter { World.members || !it.def.members }
             .toMutableList()
         AuditLog.event(npc, "dropped", *drops.toTypedArray())
+        if (killer is Player) {
+            for (item in drops) {
+                CollectionLog.onItemObtained(killer, item.id)
+            }
+        }
         if (npc.inMultiCombat && killer is Player && killer["loot_share", false]) {
             shareLoot(killer, npc, tile, drops)
         } else {
