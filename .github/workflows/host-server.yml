@@ -29,6 +29,8 @@ jobs:
     name: Run Game Server
     runs-on: ubuntu-latest
     timeout-minutes: 360
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -77,19 +79,10 @@ jobs:
             exit 1
           fi
 
-      - name: Restore player saves
-        id: restore-saves
-        uses: actions/cache/restore@v3
-        with:
-          key: player-saves-${{ github.run_id }}
-          restore-keys: |
-            player-saves-
-          path: data/saves/
-
-      - name: Show restored saves
+      - name: Show existing saves
         run: |
-          SAVE_COUNT=$(find data/saves/ -name "*.json" 2>/dev/null | wc -l)
-          echo "📂 Restored $SAVE_COUNT player save file(s)"
+          SAVE_COUNT=$(find data/saves/ -name "*.toml" 2>/dev/null | wc -l)
+          echo "📂 Found $SAVE_COUNT player save file(s) from repo"
 
       - name: Build server JAR
         run: ./gradlew shadowJar
@@ -107,7 +100,6 @@ jobs:
           cloudflared tunnel --url tcp://localhost:43594 --no-autoupdate > cloudflared.log 2>&1 &
           echo $! > cloudflared.pid
 
-          # Wait for the tunnel URL to appear in logs (up to 60 seconds)
           echo "⏳ Waiting for cloudflared tunnel to establish..."
           TUNNEL_URL=""
           for i in $(seq 1 60); do
@@ -153,7 +145,6 @@ jobs:
           echo "   Then connect the game client to localhost:43594"
           echo "============================================"
 
-          # Find the built JAR
           JAR_FILE=$(find game/build/libs -name "void-server-*.jar" ! -name "*-sources*" | head -1)
           if [ -z "$JAR_FILE" ]; then
             echo "❌ Could not find server JAR"
@@ -161,15 +152,28 @@ jobs:
           fi
           echo "Using JAR: $JAR_FILE"
 
-          # Run the server - this blocks until the workflow times out or is cancelled
           java -Xmx4g -Xms1g -jar "$JAR_FILE"
 
-      - name: Save player data
+      - name: Commit and push player saves
         if: always()
-        uses: actions/cache/save@v3
-        with:
-          key: player-saves-${{ github.run_id }}
-          path: data/saves/
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M:%S UTC')
+          SAVE_COUNT=$(find data/saves/ -name "*.toml" 2>/dev/null | wc -l)
+
+          git add data/saves/ --force
+          git diff --cached --quiet && echo "No save changes to commit" && exit 0
+
+          git commit -m "Server shutdown - $TIMESTAMP
+
+          Player saves: $SAVE_COUNT file(s)
+          Run ID: ${{ github.run_id }}"
+
+          git pull --rebase origin main
+          git push origin main
+          echo "✅ Player saves committed and pushed ($SAVE_COUNT files)"
 
       - name: Cleanup
         if: always()
@@ -177,4 +181,4 @@ jobs:
           if [ -f cloudflared.pid ]; then
             kill $(cat cloudflared.pid) 2>/dev/null || true
           fi
-          echo "✅ Player saves cached. Server stopped."
+          echo "Server stopped."

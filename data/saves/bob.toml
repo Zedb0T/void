@@ -1,0 +1,57 @@
+accountName = "bob"
+passwordHash = ""
+experience = [2000000000, 2000000000, 2000000000, 2000000000, 1996000000, 2000000000, 2000000000, 1800000000, 2000000000, 2000000000, 2000000000, 2000000000, 0, 2000000000, 2000000000, 0, 0, 2000000000, 0, 0, 0, 0, 0, 0, 0]
+blocked_skills = []
+levels = [99, 99, 99, 990, 99, 99, 99, 99, 99, 99, 99, 99, 1, 99, 99, 1, 1, 99, 1, 1, 1, 1, 1, 1, 1]
+male = true
+looks = [0, 14, 462, 594, 370, 626, 433]
+colours = [0, 85, 85, 69, 0]
+
+[tile]
+x = 3208
+y = 3220
+level = 2
+
+[variables]
+armed_and_dangerous_task = true
+creation = 1774466675264
+unlocked_music_0 = ["scape_summon", "scape_theme"]
+a_world_in_microcosm_task = true
+unlocked_music_1 = ["harmony"]
+name_history = []
+task_pinned = 3520
+unlocked_music_11 = ["scape_hunter"]
+movement = "run"
+unlocked_music_3 = ["scape_original"]
+unlocked_music_2 = ["newbie_melody"]
+xp_counter = -1233039032
+task_pin_slot = 1
+unlocked_music_4 = ["scape_main", "ground_scape", "scape_scared", "scape_santa"]
+hack_and_smash_task = true
+farming_offset_mins = 8
+unlocked_music_22 = ["the_duke"]
+unlocked_music_10 = ["homescape"]
+tolerance = 1774468387
+skill_stat_flash = ["thieving", "ranged", "constitution", "woodcutting", "prayer", "attack", "mining", "strength", "defence", "fishing", "cooking", "fletching", "smithing", "firemaking", "magic"]
+on_the_run_task = true
+task_reward_items = ["magic_staff"]
+lifetime_xp = 37421666632
+hang_on_to_something_task = true
+unstable_foundations = "incomplete"
+first_blood_task = true
+
+[inventories]
+worn_equipment = [{}, {}, {}, {id = "bronze_sword"}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+inventory = [{id = "bronze_hatchet"}, {id = "tinderbox"}, {id = "small_fishing_net"}, {id = "bucket"}, {}, {id = "bread"}, {id = "bronze_pickaxe"}, {id = "bronze_dagger"}, {}, {id = "wooden_shield"}, {id = "shortbow"}, {id = "bronze_arrow",amount = 25}, {id = "air_rune",amount = 25}, {id = "mind_rune",amount = 15}, {id = "water_rune",amount = 6}, {id = "earth_rune",amount = 4}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+item_loan = [{}]
+bank = [{id = "coins",amount = 25}, {id = "air_rune",amount = 30}, {id = "mind_rune",amount = 30}, {id = "bones",amount = 56}, {id = "mithril_hatchet"}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+returned_lent_items = [{}]
+trade_offer = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+
+[social]
+friends = {"Zedbot" = "Friend"}
+ignores = []
+
+[exchange]
+offers = [{}, {}, {}, {}, {}, {}]
+history = []

@@ -1,0 +1,58 @@
+accountName = "Zedbot"
+passwordHash = ""
+experience = [92000000, 0, 1916000000, 1413344858, 1840000000, 0, 0, 0, 250000000, 0, 0, 400000000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+blocked_skills = []
+levels = [95, 1, 99, 990, 99, 1, 1, 1, 99, 1, 1, 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+male = true
+looks = [0, 14, 451, -1, 378, 634, 429]
+colours = [0, 165, 165, 4, 0]
+
+[tile]
+x = 3250
+y = 3264
+
+[variables]
+armed_and_dangerous_task = true
+creation = 1774404556859
+adventurers_log_task = true
+a_world_in_microcosm_task = true
+unlocked_music_0 = ["scape_summon", "scape_theme", "autumn_voyage"]
+unlocked_music_1 = ["harmony"]
+name_history = []
+task_pinned = 3520
+unlocked_music_11 = ["scape_hunter"]
+reach_out_and_touch_someone_task = true
+take_a_bow_task = true
+movement = "run"
+unlocked_music_3 = ["scape_original"]
+unlocked_music_2 = ["newbie_melody"]
+log_a_rhythm_task = true
+xp_counter = 1616366022
+task_pin_slot = 1
+attack_style_dagger = 1
+unlocked_music_4 = ["scape_main", "ground_scape", "scape_scared", "scape_santa"]
+rights = "admin"
+farming_offset_mins = 23
+unlocked_music_22 = ["the_duke"]
+unlocked_music_10 = ["homescape"]
+tolerance = 1774470113
+on_the_run_task = true
+skill_stat_flash = ["ranged", "constitution", "woodcutting", "firemaking", "attack", "strength"]
+lifetime_xp = 5911333318
+unstable_foundations = "incomplete"
+
+[inventories]
+inventory = [{id = "shortbow"}, {id = "tinderbox"}, {id = "small_fishing_net"}, {id = "bucket"}, {id = "empty_pot"}, {id = "bread"}, {id = "bronze_pickaxe"}, {id = "bronze_dagger"}, {id = "wooden_shield"}, {id = "bronze_hatchet"}, {id = "bronze_spear"}, {}, {id = "air_rune",amount = 25}, {id = "mind_rune",amount = 15}, {id = "water_rune",amount = 6}, {id = "earth_rune",amount = 4}, {id = "body_rune",amount = 2}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+worn_equipment = [{}, {}, {}, {id = "bronze_sword"}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {id = "bronze_arrow",amount = 13}]
+item_loan = [{}]
+bank = [{id = "coins",amount = 25}, {id = "bones",amount = 56}, {id = "rune_pickaxe"}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+returned_lent_items = [{}]
+trade_offer = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+
+[social]
+friends = {}
+ignores = []
+
+[exchange]
+offers = [{}, {}, {}, {}, {}, {}]
+history = []

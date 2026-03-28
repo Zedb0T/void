@@ -14,7 +14,7 @@ scripts.txt
 # tools
 *.jar
 /data/dump/
-/data/saves/
+# /data/saves/ - tracked for GitHub Actions persistence
 /images/
 /temp/
 
