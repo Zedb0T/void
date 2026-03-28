@@ -50,45 +50,29 @@ jobs:
       - name: Grant permissions to gradlew
         run: chmod +x gradlew
 
-      - name: Get cache version
-        run: echo "cache_version=$(./gradlew -q printCacheVersion | tail -n1 | xargs)" >> $GITHUB_ENV
-
-      - name: Check if AWS secrets exist
-        id: check_secret
-        run: |
-          if [ -n "${{ secrets.AWS_ACCESS_KEY_ID }}" ]; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Restore game cache files
+      - name: Restore game cache from GitHub Actions cache
         id: cache-files
         uses: actions/cache@v3
         with:
-          key: cache-${{ env.cache_version }}-${{ hashFiles('data/cache/main_file_cache.idx255') }}
+          key: game-cache-v1
           path: data/cache/
-          enableCrossOsArchive: 'true'
-          restore-keys: |
-            cache-${{ env.cache_version }}
-            cache-
 
-      - name: Download game cache files from S3
-        if: steps.check_secret.outputs.exists == 'true' && steps.cache-files.outputs.cache-hit != 'true'
+      - name: Download game cache from GitHub Release
+        if: steps.cache-files.outputs.cache-hit != 'true'
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: eu-west-2
-        run: aws s3 cp --recursive s3://void-rsps/caches/${{ env.cache_version }}/ data/cache/
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "⬇️ Downloading game cache from GitHub Release..."
+          gh release download game-cache --pattern "game-cache.zip" --dir .
+          unzip -o game-cache.zip -d data/cache/
+          rm game-cache.zip
+          echo "✅ Game cache extracted"
 
       - name: Verify cache files exist
-        id: verify-cache
         run: |
           if [ -f "data/cache/main_file_cache.idx255" ] && [ -f "data/cache/main_file_cache.dat2" ]; then
-            echo "cache_exists=true" >> $GITHUB_OUTPUT
             echo "✅ Game cache files found"
           else
-            echo "cache_exists=false" >> $GITHUB_OUTPUT
             echo "❌ Game cache files missing - server cannot start without them"
             exit 1
           fi
