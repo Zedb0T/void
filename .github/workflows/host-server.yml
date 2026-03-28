@@ -44,8 +44,8 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/actions/wrapper-validation@v4
 
-      - name: Create cache folder
-        run: mkdir -p data/cache/
+      - name: Create folders
+        run: mkdir -p data/cache/ data/saves/
 
       - name: Grant permissions to gradlew
         run: chmod +x gradlew
@@ -76,6 +76,20 @@ jobs:
             echo "❌ Game cache files missing - server cannot start without them"
             exit 1
           fi
+
+      - name: Restore player saves
+        id: restore-saves
+        uses: actions/cache/restore@v3
+        with:
+          key: player-saves-${{ github.run_id }}
+          restore-keys: |
+            player-saves-
+          path: data/saves/
+
+      - name: Show restored saves
+        run: |
+          SAVE_COUNT=$(find data/saves/ -name "*.json" 2>/dev/null | wc -l)
+          echo "📂 Restored $SAVE_COUNT player save file(s)"
 
       - name: Build server JAR
         run: ./gradlew shadowJar
@@ -150,10 +164,17 @@ jobs:
           # Run the server - this blocks until the workflow times out or is cancelled
           java -Xmx4g -Xms1g -jar "$JAR_FILE"
 
+      - name: Save player data
+        if: always()
+        uses: actions/cache/save@v3
+        with:
+          key: player-saves-${{ github.run_id }}
+          path: data/saves/
+
       - name: Cleanup
         if: always()
         run: |
           if [ -f cloudflared.pid ]; then
             kill $(cat cloudflared.pid) 2>/dev/null || true
           fi
-          echo "Server stopped."
+          echo "✅ Player saves cached. Server stopped."
