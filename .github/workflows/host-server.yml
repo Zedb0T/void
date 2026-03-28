@@ -93,18 +93,19 @@ jobs:
           cloudflared tunnel --url tcp://localhost:43594 --no-autoupdate > cloudflared.log 2>&1 &
           echo $! > cloudflared.pid
 
-          # Wait for the tunnel URL to appear in logs
+          # Wait for the tunnel URL to appear in logs (up to 60 seconds)
           echo "⏳ Waiting for cloudflared tunnel to establish..."
-          for i in $(seq 1 30); do
-            if grep -q "trycloudflare.com" cloudflared.log 2>/dev/null; then
+          TUNNEL_URL=""
+          for i in $(seq 1 60); do
+            TUNNEL_URL=$(grep -oE 'https://[a-zA-Z0-9._-]+\.trycloudflare\.com' cloudflared.log 2>/dev/null | head -1 || true)
+            if [ -n "$TUNNEL_URL" ]; then
               break
             fi
-            sleep 2
+            sleep 1
           done
 
-          TUNNEL_URL=$(grep -o 'https://[a-z0-9-]*\.trycloudflare\.com' cloudflared.log | head -1 || true)
           if [ -z "$TUNNEL_URL" ]; then
-            echo "⚠️ Could not extract tunnel URL. Check cloudflared.log for details."
+            echo "⚠️ Could not extract tunnel URL after 60s. Full log:"
             cat cloudflared.log
           else
             echo "🌐 Cloudflare Tunnel URL: $TUNNEL_URL"

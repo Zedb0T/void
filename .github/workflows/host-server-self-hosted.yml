@@ -95,19 +95,20 @@ jobs:
           echo $! > cloudflared.pid
 
           echo "⏳ Waiting for cloudflared tunnel to establish..."
-          for i in $(seq 1 30); do
-            if grep -q "trycloudflare.com" cloudflared.log 2>/dev/null; then
+          TUNNEL_URL=""
+          for i in $(seq 1 60); do
+            TUNNEL_URL=$(grep -oE 'https://[a-zA-Z0-9._-]+\.trycloudflare\.com' cloudflared.log 2>/dev/null | head -1 || true)
+            if [ -n "$TUNNEL_URL" ]; then
               break
             fi
-            sleep 2
+            sleep 1
           done
 
-          TUNNEL_URL=$(grep -o 'https://[a-z0-9-]*\.trycloudflare\.com' cloudflared.log | head -1 || true)
           if [ -n "$TUNNEL_URL" ]; then
             echo "🌐 Cloudflare Tunnel URL: $TUNNEL_URL"
             echo "TUNNEL_URL=$TUNNEL_URL" >> $GITHUB_ENV
           else
-            echo "⚠️ Could not extract tunnel URL"
+            echo "⚠️ Could not extract tunnel URL after 60s"
             cat cloudflared.log
           fi
 
