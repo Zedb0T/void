@@ -1,0 +1,56 @@
+accountName = "ThinkBLUE45"
+passwordHash = "$2a$10$zfygKSqmNlPB6e7an3gVsuoTiyMWo7ReFV/IA4ZhD3wbb6a9GoV6C"
+experience = [1296, 0, 0, 11972, 0, 0, 0, 0, 1500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+blocked_skills = []
+levels = [2, 1, 1, 100, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+male = true
+looks = [0, 14, 460, 592, 368, 624, 431]
+colours = [0, 93, 94, 4, 10]
+
+[tile]
+x = 3205
+y = 3215
+level = 2
+
+[variables]
+name_history = []
+task_pinned = 3520
+task_pin_slot = 1
+unstable_foundations = "incomplete"
+lifetime_xp = 3228
+tolerance = 1774807793
+unlocked_music_4 = ["scape_main", "ground_scape", "scape_scared", "scape_santa"]
+unlocked_music_11 = ["scape_hunter"]
+unlocked_music_3 = ["scape_original"]
+unlocked_music_10 = ["homescape"]
+unlocked_music_2 = ["newbie_melody"]
+unlocked_music_0 = ["scape_summon", "scape_theme", "arabian"]
+unlocked_music_1 = ["harmony"]
+farming_offset_mins = 13
+creation = 1774806797785
+on_the_run_task = true
+xp_counter = 3228
+armed_and_dangerous_task = true
+movement = "run"
+skill_stat_flash = ["attack", "woodcutting"]
+adventurers_log_task = true
+unlocked_music_22 = ["the_duke"]
+hang_on_to_something_task = true
+task_reward_items = ["magic_staff"]
+last_bank_amount = 1000
+
+[inventories]
+worn_equipment = [{}, {}, {}, {id = "bronze_sword"}, {}, {id = "wooden_shield"}, {}, {}, {}, {}, {}, {}, {}, {}]
+inventory = [{id = "bronze_hatchet"}, {id = "tinderbox"}, {}, {id = "bucket"}, {id = "empty_pot"}, {id = "bread"}, {id = "bronze_pickaxe"}, {id = "bronze_dagger"}, {id = "logs"}, {id = "coins",amount = 1000}, {id = "shortbow"}, {id = "bronze_arrow",amount = 25}, {id = "air_rune",amount = 25}, {id = "mind_rune",amount = 15}, {id = "water_rune",amount = 6}, {id = "earth_rune",amount = 4}, {id = "body_rune",amount = 2}, {id = "small_fishing_net"}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+returned_lent_items = [{}]
+item_loan = [{}]
+trade_offer = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+bank = [{id = "coins",amount = 298922}, {id = "tinderbox",amount = 48}, {id = "small_fishing_net",amount = 45}, {id = "bucket",amount = 50}, {id = "empty_pot",amount = 51}, {id = "bread",amount = 50}, {id = "bronze_pickaxe",amount = 26}, {id = "bronze_dagger",amount = 41}, {id = "bronze_sword",amount = 50}, {id = "wooden_shield",amount = 50}, {id = "shortbow",amount = 50}, {id = "bronze_arrow",amount = 1250}, {id = "air_rune",amount = 1190}, {id = "mind_rune",amount = 690}, {id = "water_rune",amount = 300}, {id = "earth_rune",amount = 200}, {id = "body_rune",amount = 100}, {id = "copper_ore",amount = 19}, {id = "tin_ore",amount = 73}, {id = "feather",amount = 555}, {id = "bones",amount = 55}, {id = "logs",amount = 68}, {id = "clay",amount = 54}, {id = "raw_shrimps",amount = 135}, {id = "raw_crayfish",amount = 81}, {id = "crayfish_cage",amount = 3}, {id = "bronze_hatchet",amount = 44}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+
+[social]
+friends = {"zedders" = "Friend"}
+ignores = []
+
+[exchange]
+offers = [{}, {}, {}, {}, {}, {}]
+history = []
